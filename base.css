@@ -1,0 +1,67 @@
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000000;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.ui {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'IM Fell French Canon', serif;
+}
+
+.icon-bar-layout {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-bar {
+  width: 380px;
+  height: 44px;
+  display: flex;
+  justify-content: left;
+  background-image: url('./resources/ui/hotbar.png');
+  background-size: cover;
+  image-rendering: pixelated;
+}
+
+.icon-bar-item {
+  background-size: cover;
+  width: 36px;
+  height: 36px;
+  margin: 4px 3px;
+  background-size: cover;
+  image-rendering: pixelated;
+}
+
+.icon-bar-item:first-child {
+  margin-left: 4px;
+}
+
+.icon-bar-item.highlight {
+  outline: 6px solid rgb(237, 250, 116);
+  animation: blink-animation 0.5s ease-in-out infinite;
+  box-shadow: 0 0 20px #000000;
+}
+
+@keyframes blink-animation {
+  to {
+    opacity: 0.75;
+  }
+}
