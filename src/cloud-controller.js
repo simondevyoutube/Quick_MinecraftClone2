@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
 import {entity} from './entity.js';
 import {hack_defs} from './hack-defs.js';
@@ -10,6 +10,12 @@ import {voxel_shader} from './voxel-shader.js';
 export const cloud_controller = (function() {
 
   class CloudController extends entity.Component {
+    static CLASS_NAME = 'CloudController';
+
+    get NAME() {
+      return CloudController.CLASS_NAME;
+    }
+
     constructor() {
       super();
       this.clouds_ = []

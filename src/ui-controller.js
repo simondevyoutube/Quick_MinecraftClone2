@@ -7,6 +7,12 @@ import {hack_defs} from './hack-defs.js';
 export const ui_controller = (() => {
 
   class UIController extends entity.Component {
+    static CLASS_NAME = 'UIController';
+
+    get NAME() {
+      return UIController.CLASS_NAME;
+    }
+
     constructor() {
       super();
     }

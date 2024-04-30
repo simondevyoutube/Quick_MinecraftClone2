@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
 import {threejs_component} from './threejs-component.js';
 import {sparse_voxel_cell_manager} from './sparse-voxel-cell-manager.js';

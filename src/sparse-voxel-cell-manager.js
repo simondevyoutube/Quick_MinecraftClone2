@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
 import {entity} from './entity.js';
 import {utils} from './utils.js';
@@ -12,6 +12,12 @@ import {hack_defs} from './hack-defs.js';
 export const sparse_voxel_cell_manager = (() => {
 
   class SparseVoxelCellManager extends entity.Component {
+    static CLASS_NAME = 'SparseVoxelCellManager';
+
+    get NAME() {
+      return SparseVoxelCellManager.CLASS_NAME;
+    }
+
     constructor(params) {
       super();
       this.blocks_ = {};

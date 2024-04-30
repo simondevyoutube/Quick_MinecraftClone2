@@ -1,6 +1,6 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
-import {GLTFLoader} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/loaders/GLTFLoader.js';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import {entity} from './entity.js';
 import {voxel_shader} from './voxel-shader.js';
@@ -10,6 +10,12 @@ import {hack_defs} from './hack-defs.js';
 export const voxel_tools = (() => {
 
   class VoxelTools_Insert extends entity.Component {
+    static CLASS_NAME = 'VoxelTools_Insert';
+
+    get NAME() {
+      return VoxelTools_Insert.CLASS_NAME;
+    }
+
     constructor() {
       super();
 
@@ -265,6 +271,12 @@ export const voxel_tools = (() => {
 
 
   class VoxelTools_Delete extends entity.Component {
+    static CLASS_NAME = 'VoxelTools_Delete';
+
+    get NAME() {
+      return VoxelTools_Delete.CLASS_NAME;
+    }
+
     constructor() {
       super();
       this.timer_ = 0;

@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
 import {noise} from './noise.js';
 import {math} from './math.js';
@@ -1297,17 +1297,17 @@ export const voxel_block_builder = (() => {
 
       for (let k in meshes) {
         const positionsArray = new Float32Array(
-            new SharedArrayBuffer(bytesInFloat32 * meshes[k].positions.length));
+            new ArrayBuffer(bytesInFloat32 * meshes[k].positions.length));
         const normalsArray = new Float32Array(
-            new SharedArrayBuffer(bytesInFloat32 * meshes[k].normals.length));
+            new ArrayBuffer(bytesInFloat32 * meshes[k].normals.length));
         const uvsArray = new Float32Array(
-            new SharedArrayBuffer(bytesInFloat32 * meshes[k].uvs.length));
+            new ArrayBuffer(bytesInFloat32 * meshes[k].uvs.length));
         const uvSlicesArray = new Float32Array(
-            new SharedArrayBuffer(bytesInFloat32 * meshes[k].uvSlices.length));
+            new ArrayBuffer(bytesInFloat32 * meshes[k].uvSlices.length));
         const coloursArray = new Float32Array(
-            new SharedArrayBuffer(bytesInFloat32 * meshes[k].colours.length));
+            new ArrayBuffer(bytesInFloat32 * meshes[k].colours.length));
         const indicesArray = new Uint32Array(
-            new SharedArrayBuffer(bytesInInt32 * meshes[k].indices.length));
+            new ArrayBuffer(bytesInInt32 * meshes[k].indices.length));
 
         positionsArray.set(meshes[k].positions, 0);
         normalsArray.set(meshes[k].normals, 0);

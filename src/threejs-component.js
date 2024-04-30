@@ -1,23 +1,16 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
-import {EffectComposer} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/postprocessing/EffectComposer.js';
-import {RenderPass} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/postprocessing/RenderPass.js';
-import {UnrealBloomPass} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/postprocessing/UnrealBloomPass.js';
-import {SSAOPass} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/postprocessing/SSAOPass.js';
-import {SAOPass} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/postprocessing/SAOPass.js';
-import {ShaderPass} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/postprocessing/ShaderPass.js';
+import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass.js';
+import {ShaderPass} from 'three/examples/jsm/postprocessing/ShaderPass.js';
 
-import {GammaCorrectionShader} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/shaders/GammaCorrectionShader.js';
-import {FXAAShader} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/shaders/FXAAShader.js';
+import {GammaCorrectionShader} from 'three/examples/jsm/shaders/GammaCorrectionShader.js';
+import {FXAAShader} from 'three/examples/jsm/shaders/FXAAShader.js';
 
 import {entity} from "./entity.js";
 import {hack_defs} from "./hack-defs.js";
 import {defs} from "./defs.js";
 
-import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.124/examples/jsm/controls/OrbitControls.js';
-
-
-import { GUI } from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/libs/dat.gui.module.js';
 
 export const threejs_component = (() => {
 
@@ -79,6 +72,12 @@ export const threejs_component = (() => {
   }`;
 
   class ThreeJSController extends entity.Component {
+    static CLASS_NAME = 'ThreeJSController';
+
+    get NAME() {
+      return ThreeJSController.CLASS_NAME;
+    }
+
     constructor() {
       super();
     }

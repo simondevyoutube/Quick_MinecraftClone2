@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+import * as THREE from 'three';
 
 import {worker_pool} from './worker-pool.js';
 
@@ -270,8 +270,7 @@ export const voxel_builder_threaded = (() => {
       this.old_ = [];
       this.blocks_ = [];
 
-      this.workerPool_ = new worker_pool.WorkerPool(
-          _NUM_WORKERS, 'src/voxel-builder-threaded-worker.js');
+      this.workerPool_ = new worker_pool.WorkerPool(_NUM_WORKERS);
   
       this.params_ = params;
       this.currentTime_ = 0.01;

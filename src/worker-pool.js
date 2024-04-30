@@ -3,8 +3,8 @@ export const worker_pool = (() => {
   let _IDS = 0;
 
   class WorkerThread {
-    constructor(s) {
-      this.worker_ = new Worker(s, {type: 'module'});
+    constructor() {
+      this.worker_ = new Worker(new URL('/src/voxel-builder-threaded-worker.js', import.meta.url), {type: 'module'});
       this.worker_.onmessage = (e) => {
         this._OnMessage(e);
       };
@@ -29,8 +29,8 @@ export const worker_pool = (() => {
   }
 
   class WorkerPool {
-    constructor(sz, entry) {
-      this.workers_ = [...Array(sz)].map(_ => new WorkerThread(entry));
+    constructor(sz) {
+      this.workers_ = [...Array(sz)].map(_ => new WorkerThread());
       this.free_ = [...this.workers_];
       this.busy_ = {};
       this.queue_ = [];

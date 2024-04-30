@@ -1,10 +1,16 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.124/build/three.module.js';
+import * as THREE from 'three';
 import {entity} from './entity.js';
 
 
 export const third_person_camera = (() => {
   
   class ThirdPersonCamera extends entity.Component {
+    static CLASS_NAME = 'ThirdPersonCamera';
+
+    get NAME() {
+      return ThirdPersonCamera.CLASS_NAME;
+    }
+
     constructor(params) {
       super();
 

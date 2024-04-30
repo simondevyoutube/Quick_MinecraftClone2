@@ -1,5 +1,5 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
-import {PointerLockControls} from 'https://cdn.jsdelivr.net/npm/three@0.125/examples/jsm/controls/PointerLockControls.js';
+import * as THREE from 'three';
+import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls.js';
 import {entity} from './entity.js';
 
 import {hack_defs} from './hack-defs.js';
@@ -11,6 +11,12 @@ export const player_controller = (() => {
   // and collision detection was completely rewritten, but credit to original
   // class for the setup code.
   class PlayerController extends entity.Component {
+    static CLASS_NAME = 'PlayerController';
+
+    get NAME() {
+      return PlayerController.CLASS_NAME;
+    }
+
     constructor() {
       super();
     }

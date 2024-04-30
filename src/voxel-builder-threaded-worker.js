@@ -9,7 +9,14 @@ self.onmessage = (msg) => {
     _BLOCK.Init(msg.data.params);
 
     const rebuiltData = _BLOCK.Rebuild();
-    self.postMessage({subject: 'build_chunk_result', data: rebuiltData});
+    const buffers = [];
+    for (let k in rebuiltData.opaque) {
+      buffers.push(rebuiltData.opaque[k].buffer);
+    }
+    for (let k in rebuiltData.transparent) {
+      buffers.push(rebuiltData.transparent[k].buffer);
+    }
+    self.postMessage({subject: 'build_chunk_result', data: rebuiltData}, buffers);
   }
 }
 

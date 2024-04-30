@@ -16,7 +16,7 @@ import {
 	Vector3,
 	Vector4,
 	WebGLRenderTarget
-} from 'https://cdn.jsdelivr.net/npm/three@0.125/build/three.module.js';
+} from 'three';
 
 
 /**

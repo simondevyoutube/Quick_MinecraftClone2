@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.124/build/three.module.js';
+import * as THREE from 'three';
 
 
 export const entity = (() => {
@@ -57,7 +57,7 @@ export const entity = (() => {
 
     AddComponent(c) {
       c.SetParent(this);
-      this._components[c.constructor.name] = c;
+      this._components[c.NAME] = c;
 
       c.InitComponent();
     }
@@ -118,6 +118,11 @@ export const entity = (() => {
   };
 
   class Component {
+    get NAME() {
+      console.error('Unnamed Component: ' + this.constructor.name);
+      return '__UNNAMED__';
+    }
+  
     constructor() {
       this.parent_ = null;
     }
